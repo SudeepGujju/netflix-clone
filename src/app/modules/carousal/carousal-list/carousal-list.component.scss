@@ -1,0 +1,51 @@
+.carousal{
+  position: relative;
+  overflow: hidden;
+  outline: none;
+
+  &-list{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: relative;
+  }
+
+  &-slide{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  &-btn {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &.prev {
+      left: 1rem;
+    }
+
+    &.next {
+      right: 1rem;
+    }
+  }
+
+  &-indicators{
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+
+    & > button{
+      width: 10px;
+      height: 10px;
+      margin: 7px;
+    }
+  }
+}

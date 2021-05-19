@@ -1,0 +1,20 @@
+<div  class="banner d-flex align-items-center" *ngIf="movie" [style.background-image]="'url('+movie.image+')'">
+  <div class="row row-cols-1 pl-4 movie">
+    <h1 class="col mat-title movie-title font-italic">
+      {{movie.name}}
+    </h1>
+    <div class="col movie-desc">
+      {{movie.desc | truncate: 200}}
+    </div>
+    <div class="col">
+      <button mat-flat-button class="mr-2 px-4">
+        <mat-icon>play_arrow</mat-icon>
+        Play
+      </button>
+      <button mat-flat-button class="px-4">
+        <mat-icon>info</mat-icon>
+        More Info
+      </button>
+    </div>
+  </div>
+</div>

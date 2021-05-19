@@ -1,0 +1,61 @@
+<div
+  class="carousal"
+  #carouselContainer
+  tabindex="0"
+  [style.max-width]="maxWidth"
+  [style.height]="maintainAspectRatio ? 'auto' : '100%'"
+>
+  <div
+    class="carousal-list"
+    role="listbox"
+    #carouselList
+    [style.flex-direction]="orientation === 'rtl' ? 'row-reverse' : 'row'"
+    [style.height]="maintainAspectRatio ? 'auto' : '100%'"
+  >
+    <div
+      class="carousal-slide"
+      *ngFor="let slide of slidesList"
+      [style.height]="!maintainAspectRatio && slideHeight ? slideHeight : '0px'"
+      [style.padding-bottom]="
+        maintainAspectRatio && proportion ? proportion + '%' : '0px'
+      "
+    >
+      <ng-container [ngTemplateOutlet]="slide.cardTemplate"></ng-container>
+    </div>
+  </div>
+  <button
+    type="button"
+    tabindex="-1"
+    class="carousal-btn prev"
+    mat-icon-button
+    [color]="color"
+    *ngIf="showArrows"
+    [disabled]="!loop && currentIndex == 0"
+    (click)="previous()"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button
+    type="button"
+    tabindex="-1"
+    class="carousal-btn next"
+    mat-icon-button
+    [color]="color"
+    *ngIf="showArrows"
+    [disabled]="!loop && currentIndex == slidesList.length - 1"
+    (click)="next()"
+  >
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+  <div *ngIf="showIndicators" tabindex="-1" class="carousal-indicators">
+    <button
+      type="button"
+      tabindex="-1"
+      *ngFor="let slide of slidesList; let i = index"
+      [disabled]="currentIndex === i"
+      (click)="slideTo(i)"
+      mat-mini-fab
+      [color]="color"
+    ></button>
+  </div>
+</div>

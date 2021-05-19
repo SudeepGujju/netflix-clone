@@ -1,0 +1,25 @@
+<mat-card class="p-0">
+  <img class="w-100" [style.height]="height" [alt]="movie.name" [src]="movie.image"/>
+  <mat-card-content *ngIf="isActive" class="px-2 w-100">
+      <div class="py-1">
+        {{movie.name}}
+      </div>
+      <div>
+        <button type="button" mat-icon-button><mat-icon>play_circle</mat-icon></button>
+        <button type="button" mat-icon-button><mat-icon>add_circle_outline</mat-icon></button>
+      </div>
+      <div class="d-flex py-1">
+        <div class="border border-success text-success px-2">
+          {{movie.votesAverage}}
+        </div>
+      </div>
+      <div class="py-1 d-flex" *ngIf="generes$ | async as genres">
+        <ng-container *ngFor="let genre of genres; let isFirst=first;">
+          <div class="d-flex" style="padding-right: 0.5em;">
+            <span *ngIf="!isFirst" class="genre-sep"></span>
+            <span>{{genre}}</span>
+          </div>
+        </ng-container>
+      </div>
+  </mat-card-content>
+</mat-card>

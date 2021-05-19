@@ -1,0 +1,41 @@
+.banner{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  // background-image: url(https://image.tmdb.org/t/p/original//56v2KjBlU4XaOv9rVYEQypROD7P.jpg);
+  background-position: center center;
+  position: relative;
+
+  &::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 25%;
+    bottom: 0;
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgba(37, 37, 37, 0.8),
+      #111
+    );
+  }
+
+}
+
+.movie{
+  width: 40%
+}
+
+.movie-title{
+  color: #fff;
+  font-weight: 800;
+  font-size: 2.5rem;
+  letter-spacing: .3rem;
+}
+
+.movie-desc{
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 3vh;
+}
+

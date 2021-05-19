@@ -1,0 +1,13 @@
+.cat-container{
+  color: #fff;
+  height: 170px;
+}
+
+.movie-list{
+  height: 80%;
+  display: flex;
+}
+
+.movie-list::-webkit-scrollbar {
+  display: none;
+}

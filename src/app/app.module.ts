@@ -5,18 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './modules/material.module';
+import { BannerComponent } from './banner/banner.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+import { MovieCatListComponent } from './movie-cat-list/movie-cat-list.component';
+import { TruncatePipe } from './pipes/truncate.pipe';
+import { CarousalModule } from './modules/carousal/carousal.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    BannerComponent,
+    MovieCardComponent,
+    MovieCatListComponent,
+    TruncatePipe,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    CarousalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

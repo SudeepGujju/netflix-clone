@@ -1,0 +1,6 @@
+<div class="container cat-container">
+  <div class="cat-name py-1">{{title}}</div>
+  <div class="movie-list">
+    <app-movie-card *ngFor="let movie of movies$ | async;" [movie]="movie"></app-movie-card>
+  </div>
+</div>
