@@ -54,14 +54,14 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube-nocookie.com/embed/N9HkhRPhTJ8?controls=0&amp;autoplay=1');
+    this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube-nocookie.com/embed/N9HkhRPhTJ8?controls=0&autoplay=1');
 
     this.generes$ = this.movieSrvc.getGenereName(this.movie.genreIDs).pipe(shareReplay(1));
 
     movieTrailer(null ,{tmdbId: this.movie.id, id: true}).then( (videoId: string) => {
 
       if(videoId){
-        this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube-nocookie.com/embed/'+videoId+'?controls=0&amp;autoplay=1');
+        this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube-nocookie.com/embed/'+videoId+'?controls=0&autoplay=1');
       }
 
     });
