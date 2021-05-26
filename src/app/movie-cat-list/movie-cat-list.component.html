@@ -1,6 +1,11 @@
-<div class="container cat-container">
-  <div class="cat-name py-1">{{title}}</div>
+<div class="container cat-container" (mouseenter)="isListHovered=true" (mouseleave)="isListHovered=false">
+  <div class="cat-name py-1 mat-title my-0 d-inline-block" (mouseenter)="showExploreAll=true" (mouseleave)="showExploreAll=false">
+    <span class="d-inline-block" >{{title}}</span>
+    <span class="mat-small font-weight-bold d-inline-block pl-2" @fadeInOutRight *ngIf="isListHovered && !showExploreAll">&#5171;</span>
+    <span class="mat-small d-inline-block pl-2" @fadeInOutLeft *ngIf="showExploreAll">Explore All</span>
+    <span class="mat-small font-weight-bold d-inline-block pl-2" @fadeInOutLeft *ngIf="showExploreAll">&#5171;</span>
+  </div>
   <div class="movie-list">
-    <app-movie-card *ngFor="let movie of movies$ | async;" [movie]="movie"></app-movie-card>
+    <app-movie-card *ngFor="let movie of movies$ | async; let isFirst=first;" [class.first-card]="isFirst" [movie]="movie"></app-movie-card>
   </div>
 </div>

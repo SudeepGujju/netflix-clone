@@ -1,3 +1,24 @@
+:host{
+  display: block;
+
+  &:not(.first-cat){
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  // .cat-name::after{
+  //   content: '\02C3';
+  //   padding-left: 5px;
+  //   width: 5px;
+  //   opacity: 0;
+  //   transition: opacity 0.2s;
+  // }
+
+  // &:hover .cat-name::after{
+  //   opacity: 1;
+  // }
+}
+
 .cat-container{
   color: #fff;
   height: 170px;

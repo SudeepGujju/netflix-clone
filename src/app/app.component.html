@@ -1,17 +1,2 @@
 <app-navbar></app-navbar>
-
-<ng-container *ngIf="(bannerMovies$ | async) as movies; else loading">
-  <app-carousal-list [slides]="movies.length" [interval]="5000" [showArrows]="false" color="primary" [autoplay]="true">
-    <app-carousal-card #slide *ngFor="let movie of movies; let i=index;">
-      <app-banner [movie]="movie"></app-banner>
-    </app-carousal-card>
-  </app-carousal-list>
-</ng-container>
-<ng-template #loading>
-  <app-carousal-list [slides]="1" [showArrows]="false" [showIndicators]="false" color="primary" >
-    <app-carousal-card [image]="'assets/demo.png'">
-    </app-carousal-card>
-  </app-carousal-list>
-</ng-template>
-
-<app-movie-cat-list *ngFor="let catergory of categoryList" [title]="catergory.title" [url]="catergory.url"></app-movie-cat-list>
+<router-outlet></router-outlet>

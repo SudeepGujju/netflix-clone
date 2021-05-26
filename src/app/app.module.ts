@@ -12,6 +12,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieCatListComponent } from './movie-cat-list/movie-cat-list.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { CarousalModule } from './modules/carousal/carousal.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CarousalModule } from './modules/carousal/carousal.module';
     MovieCardComponent,
     MovieCatListComponent,
     TruncatePipe,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

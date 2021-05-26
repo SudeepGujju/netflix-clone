@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { map, shareReplay, tap } from 'rxjs/operators';
 import { base_url, image_base_url, request } from '../constants/url';
 import { Movie } from '../models/movie';
 
@@ -25,6 +25,7 @@ export class MovieService {
         movie.name = result.title || result.original_name;
         movie.image = image_base_url + result.backdrop_path;
         movie.desc = result.overview;
+        movie.votesAverage = result.vote_average;
 
         return movie;
       })
@@ -39,7 +40,7 @@ export class MovieService {
         map( (data: any) => data.results ),
         map( (moviesList: any) => {
           let randomNumbers = [];
-          while (randomNumbers.length < 2) {
+          while (randomNumbers.length < 5) {
             var r = Math.floor(Math.random() * moviesList.length);
             if (randomNumbers.indexOf(r) === -1) randomNumbers.push(r);
           }
@@ -52,6 +53,7 @@ export class MovieService {
             movie.name = result.title || result.original_name;
             movie.image = image_base_url + result.backdrop_path;
             movie.desc = result.overview;
+            movie.votesAverage = result.vote_average;
 
             return movie;
           });

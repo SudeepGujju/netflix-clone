@@ -1,5 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$my-primary: mat-palette($mat-red);
+$my-accent: mat-palette($mat-blue, A200, A100, A400);
+$my-warn: mat-palette($mat-orange);// The warn palette is optional (defaults to red).
+
+// Create the theme object (a Sass map containing all of the palettes).
+$my-dark-theme: mat-dark-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  )
+));
+
+// $mat-white: (
+//   50: #ffffff,
+//   100: #ffffff,
+//   200: #ffffff,
+//   300: #ffffff,
+//   400: #ffffff,
+//   500: #ffffff,
+//   600: #ffffff,
+//   700: #ffffff,
+//   800: #ffffff,
+//   900: #ffffff,
+//   A100: #ffffff,
+//   A200: #ffffff,
+//   A400: #ffffff,
+//   A700: #ffffff,
+//   contrast: (
+//     50: $dark-primary-text,
+//     100: $dark-primary-text,
+//     200: $dark-primary-text,
+//     300: $dark-primary-text,
+//     400: $light-primary-text,
+//     500: $light-primary-text,
+//     600: $light-primary-text,
+//     700: $light-primary-text,
+//     800: $light-primary-text,
+//     900: $light-primary-text,
+//     A100: $dark-primary-text,
+//     A200: $dark-primary-text,
+//     A400: $light-primary-text,
+//     A700: $light-primary-text,
+//   )
+// );
+
+// $my-specific-primary: mat-palette($mat-grey);
+// $my-specific-accent: mat-palette($mat-white);
+
+// $my-specific-theme: mat-light-theme((
+//   color: (
+//     primary: $my-specific-primary,
+//     accent: $my-specific-accent,
+//   )
+// ));
+
+// Create the theme object (a Sass map containing all of the palettes).
+$my-light-theme: mat-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  )
+));
+
+.my-theme{
+
+  &-button{
+    // Extract the color configuration from the theme and generate
+    // the color theme styles for `mat-button`.
+    // @include mat-button-color($my-light-theme);
+    @include mat-button-color($my-light-theme);
+  }
+
+  // &-border-primary{
+  //   border: 2px solid mat-color($my-primary);
+  // }
+
+  // &-text-primary{
+  //   color: mat-color($my-primary);
+  // }
+}
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($my-dark-theme);
+
 // Imports functions, variables, and mixins that are needed by other Bootstrap files
 @import "variables";
 @import "~bootstrap/scss/functions";
@@ -17,7 +116,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 body{
-  background-color: #111;
+  // background-color: #111;
   overflow-x: hidden;
 }
 

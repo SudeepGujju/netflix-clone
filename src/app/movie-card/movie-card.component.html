@@ -1,6 +1,9 @@
 <mat-card class="p-0">
-  <img class="w-100" [style.height]="height" [alt]="movie.name" [src]="movie.image"/>
-  <mat-card-content *ngIf="isActive" class="px-2 w-100">
+  <iframe class="w-100" *ngIf="showTrailer; else movieImage" [src]="trailerUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <ng-template #movieImage>
+    <img class="w-100" [style.height]="height" [alt]="movie.name" [src]="movie.image" />
+  </ng-template>
+  <mat-card-content @fadeIn *ngIf="isActive" class="px-2 w-100">
       <div class="py-1">
         {{movie.name}}
       </div>

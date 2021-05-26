@@ -10,13 +10,13 @@
     position: absolute;
     content: '';
     width: 100%;
-    height: 25%;
+    height: 20%;
     bottom: 0;
     background-image: linear-gradient(
       180deg,
       transparent,
       rgba(37, 37, 37, 0.8),
-      #111
+      #303030
     );
   }
 
@@ -36,6 +36,6 @@
 .movie-desc{
   font-size: 1rem;
   color: #fff;
-  margin-bottom: 3vh;
+  margin-bottom: 3rem;
 }
 
